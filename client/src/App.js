@@ -5,6 +5,7 @@ import Nav from './componenets/Nav';
 import Login from './pages/auth/Login';
 import Dashboard from './pages/dashboard/Dashboard';
 import { minRiskTheme } from './styles/theme';
+import Evaluation from './pages/evaluation/Evaluation';
 
 // theme
 
@@ -16,8 +17,9 @@ function App() {
           <BrowserRouter>
             <Nav />
             <Routes>
-              <Route path="/login" exact element={<Login />} />
+              <Route path="/" exact element={<Login />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/evaluation" element={<Evaluation />} />
             </Routes>
           </BrowserRouter>
         </div>

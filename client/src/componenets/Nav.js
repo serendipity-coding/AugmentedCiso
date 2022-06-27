@@ -19,13 +19,19 @@ const Nav = () => {
           variant="square"
           sx={{ width: '150px', height: '30px', cursor: 'pointer' }}
           onClick={() => {
-            navigate(`/login`);
+            navigate(`/`);
           }}
         />
       </Grid>
       <Grid>
-        <Button variant="contained" sx={{ backgroundColor: '#FA7041' }}>
-          About us
+        <Button
+          variant="contained"
+          sx={{ backgroundColor: '#FA7041' }}
+          onClick={() => {
+            navigate(`/evaluation`);
+          }}
+        >
+          Best practices
         </Button>
       </Grid>
     </Grid>

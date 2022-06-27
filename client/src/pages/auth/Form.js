@@ -1,11 +1,12 @@
 import { Button, Grid, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apis from '../../api/augmentedCisoApi';
 
 const Form = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [disabled, setIsDisabled] = useState(true);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
@@ -27,6 +28,14 @@ const Form = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (name && email) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [name, email]);
   return (
     <Grid>
       <TextField
@@ -71,6 +80,7 @@ const Form = () => {
         variant="contained"
         sx={{ mt: 3, mb: 2 }}
         onClick={registerPlayer}
+        disabled={disabled}
       >
         Sign In
       </Button>

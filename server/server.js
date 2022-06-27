@@ -1,8 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+// utils
+import getAuth from './utils/getAuth.js';
 // Route files
-import courses from './routes/courses.js';
+import assess from './routes/assess.js';
+import getMeasures from './utils/getMeasures.js';
 
 // Load env variables
 dotenv.config({ path: './config/config.env' });
@@ -12,7 +15,7 @@ const app = express();
 app.use(cors());
 
 // Mount routes
-app.use('/api/v1/courses', courses);
+app.use('/api/v1/', assess);
 const PORT = process.env.PORT || 5000;
 app.listen(
   PORT,
