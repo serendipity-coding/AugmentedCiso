@@ -43,9 +43,8 @@ const Form = () => {
         required
         fullWidth
         id="email"
-        label="Email Address"
-        name="email"
-        // autoComplete="email"
+        placeholder="Email"
+        value={email}
         autoFocus
         onChange={(e) => {
           setEmail(e.target.value);
@@ -55,10 +54,10 @@ const Form = () => {
         margin="normal"
         required
         fullWidth
-        name="name"
-        label="Name"
+        placeholder="Name"
         type="text"
         id="name"
+        value={name}
         onChange={(e) => {
           setName(e.target.value);
         }}
