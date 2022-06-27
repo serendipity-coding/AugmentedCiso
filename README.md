@@ -2,6 +2,8 @@
 
 https://user-images.githubusercontent.com/56723353/175941365-0a564331-a435-4f78-a8ec-97401a521a56.jpg
 
+![ScreenShot](https://user-images.githubusercontent.com/56723353/175941365-0a564331-a435-4f78-a8ec-97401a521a56.jpg)
+
 ### General info
 
 This is a NodeJs React web application that is used to assess cyber-security risk in a company
