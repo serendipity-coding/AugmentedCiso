@@ -3,15 +3,8 @@ import getMeasures from '../utils/getMeasures.js';
 import play from '../utils/play.js';
 import lodash from 'lodash';
 
-const shuffleMeasures = (measures) => {
-  let selectedMeasures = measures.sort(() => 0.5 - Math.random()).slice(0, 3);
-  let totalCost = lodash.sum(selectedMeasures.map((elt) => elt.cost));
-  return totalCost;
-};
-
 const predictMeasures = async (req, res) => {
   const token = req.params.token;
-
   try {
     // const token = await getAuth();
     const measures = await getMeasures(token);
@@ -33,7 +26,6 @@ const predictMeasures = async (req, res) => {
     const payload = {
       measures: measuresToSend.map((measure) => measure.identifier)
     };
-
     const response = await play(token, payload);
     res
       .status(200)
