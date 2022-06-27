@@ -12,6 +12,7 @@ import {
   Select
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import apis from '../../api/augmentedCisoApi';
 import Intro from './Intro';
 import Results from './Results';
@@ -27,6 +28,7 @@ const MenuProps = {
 };
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [measures, setMeasures] = useState([]);
   const [selectedMeasures, setSelectedMeasures] = useState([]);
   const [selectedError, setSelectedError] = useState(false);
@@ -95,12 +97,12 @@ const Dashboard = () => {
 
           <Grid
             container
-            direction="row"
-            justifyContent="space-around"
+            direction="column"
+            justifyContent="center"
             alignItems="center"
             sx={{ marginTop: '2rem' }}
           >
-            <FormControl sx={{ width: '80%' }}>
+            <FormControl sx={{ width: '100%' }}>
               <InputLabel>Measures</InputLabel>
               <Select
                 id="measures-multiple-checkbox"
@@ -127,13 +129,32 @@ const Dashboard = () => {
                 ))}
               </Select>
             </FormControl>
-            <Button
-              disabled={selectedError}
-              variant="contained"
-              onClick={assesRisk}
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              sx={{ marginTop: '2rem' }}
             >
-              Assess
-            </Button>
+              <Button
+                disabled={selectedError}
+                variant="contained"
+                onClick={assesRisk}
+                sx={{ width: '8rem' }}
+              >
+                Assess
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                sx={{ color: 'white', width: '8rem', marginLeft: '2rem' }}
+                onClick={() => {
+                  navigate(`/evaluation`);
+                }}
+              >
+                Get evalutaion
+              </Button>
+            </Grid>
           </Grid>
           {excessBudget && (
             <Grid sx={{ marginTop: '2rem' }}>

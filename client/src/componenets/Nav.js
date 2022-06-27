@@ -24,14 +24,8 @@ const Nav = () => {
         />
       </Grid>
       <Grid>
-        <Button
-          variant="contained"
-          sx={{ backgroundColor: '#FA7041' }}
-          onClick={() => {
-            navigate(`/evaluation`);
-          }}
-        >
-          Best practices
+        <Button variant="contained" sx={{ backgroundColor: '#FA7041' }}>
+          About us
         </Button>
       </Grid>
     </Grid>
